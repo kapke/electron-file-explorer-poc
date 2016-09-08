@@ -1,0 +1,9 @@
+{
+  "dependencies": {},
+  "globalDependencies": {
+    "core-js": "registry:dt/core-js#0.0.0+20160725163759",
+    "github-electron": "registry:dt/github-electron#1.3.4+20160831020201",
+    "jasmine": "github:DefinitelyTyped/DefinitelyTyped/jasmine/jasmine.d.ts#bc92442c075929849ec41d28ab618892ba493504",
+    "node": "registry:dt/node#6.0.0+20160907103612"
+  }
+}
