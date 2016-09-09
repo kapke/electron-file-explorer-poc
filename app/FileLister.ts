@@ -11,6 +11,7 @@ export class FileLister {
     }
 
     listDirectory (path: string): Observable<string[]> {
+        //bindNodeCallback typings don't play well with that
         const files$ = new EventEmitter<string[]>();
 
         this.fs.readdir(path, (err, data) => {

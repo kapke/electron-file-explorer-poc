@@ -17,3 +17,4 @@ if (WEBPACK_ENV !== 'production') {
 
 // Angular 2 Deps
 import 'rxjs/Rx';
+import "rxjs/add/operator/catch";

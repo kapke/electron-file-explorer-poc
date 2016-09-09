@@ -16,6 +16,7 @@ import {Component, NgZone} from '@angular/core';
         }
         sg-panel {
             flex-grow: 1;
+            flex-basis: 50%;
             border: none;
             border-left: 1px solid black;
             border-right: 1px solid black;

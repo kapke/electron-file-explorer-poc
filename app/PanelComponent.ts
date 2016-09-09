@@ -1,19 +1,18 @@
 import {Component, Input, OnInit} from "@angular/core";
 import {FileLister} from "./FileLister";
-import {Observable} from "rxjs";
 
 
 @Component({
     selector: 'sg-panel',
     template: `
         <sg-address-bar [path]="path" (pathChange)="changePath($event)"></sg-address-bar>
-        <sg-file-list [files]="files$ | async"></sg-file-list>
+        <sg-file-list [files]="files"></sg-file-list>
     `
 })
 export class PanelComponent implements OnInit {
     @Input() private path: string;
 
-    private files$: Observable<string[]>;
+    private files: string[];
     private fileLister: FileLister;
 
     constructor (fileLister: FileLister) {
@@ -30,6 +29,10 @@ export class PanelComponent implements OnInit {
     }
 
     updateFiles () {
-        this.files$ = this.fileLister.listDirectory(this.path);
+        this.fileLister
+            .listDirectory(this.path)
+            .subscribe(
+                (files) => this.files = files
+            );
     }
 }
