@@ -18,7 +18,7 @@ const config = {
         'css': './app/scss/main.scss'
     },
     output: {
-        path: path.resolve(__dirname, './dist'),
+        path: path.resolve(__dirname, './dist/app'),
         filename: '[name].js'
     },
     resolve: {
@@ -50,7 +50,9 @@ if (isProduction()) {
             comments: false
         }),
         new webpack.DefinePlugin({'WEBPACK_ENV': '"production"'}),
-        new CopyWebpackPlugin([{from: './src/index.html'}], {})
+        new CopyWebpackPlugin([
+            {from: './app/index-build.html', to: 'index.html'},
+        ])
     ]);
 } else {
     config.devtool = 'source-map';
